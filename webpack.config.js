@@ -1,5 +1,6 @@
 // webpack and babel help compile everything into bundle.js
 module.exports = {
+	devtool: 'source-map',
 	// webpack is supplying entry point for the first/root JS file for app
 	entry:[
 		'./src/index.js'
