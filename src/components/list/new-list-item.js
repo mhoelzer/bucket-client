@@ -1,11 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
+import { createPost } from '../../actions2/index'
 import { Link } from 'react-router';
 
 class ListItem extends Component {
 	handleFormSubmit(formProps){
 		// call action creator to sign up the user
-		console.log(formProps);
+		// console.log(formProps);
+		this.props.createPost(formProps);
 	}
 
 	render(){
@@ -32,7 +34,7 @@ class ListItem extends Component {
 				</fieldset>
 
 				<button type="submit" className="btn btn=primary">Submit</button>
-				<Link to="/" className="btn btn-danger">Cancel</Link>
+				<button input="submit" className="btn btn-danger">Cancel</button>
 			</form>
 		);
 	}
@@ -41,4 +43,5 @@ class ListItem extends Component {
 export default reduxForm({
 	form: 'PostsNewForm',
 	fields: ['title', 'category', 'url', 'content']
-})(ListItem);
+// })(ListItem);
+}, null, { createPost })(ListItem);

@@ -3,8 +3,11 @@ import axios from 'axios';
 
 export const CREATE_POSTS = 'CREATE_POSTS';
 
-const ROOT_URL = 'http://rest.learncode.academy/api/paul';
+// call out to a test api
+// take out the learncode b/c the url might be too long. check by adding /posts at the end in the url thingy on internet
+const ROOT_URL = 'http://rest.learncode.academy/api/mh';
 
+// action creator b/c returns an action
 export function createPost(props){
 	const request = axios.post(`${ROOT_URL}/posts`, props);
 	return {
