@@ -14,7 +14,7 @@ class Video extends Component{
 			videos: [],
 			selectedVideo: null
 		};
-		this.videoSearch('bucketlist');
+		this.videoSearch('Evanescence - Bring Me To Life (Animal Cover)');
 	}
 	videoSearch(term){
 		YTSearch({key: API_KEY, term: term}, (videos) => {
