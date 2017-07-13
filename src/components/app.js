@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
 import NavBarHeader from './nav';
+import Signin from './auth/signin';
 import Video from './video/video';
-import BandList from '../containers/BandList';
+// import BandList from '../containers/BandList';
+				// <BandList />
+
 
 export default class App extends Component{
 	render(){
@@ -9,7 +12,7 @@ export default class App extends Component{
 			<div>
 				<NavBarHeader />
 				<Video />
-				<BandList />
+				{this.props.children}
 			</div>
 		);
 	}

@@ -7,7 +7,8 @@ import {reducer as formReducer} from 'redux-form';
 // define the properties of our app store here
 const rootReducer = combineReducers({
 	// state: (state = {}) => state
-	bands: BandsReducer,
-	SelectedBand: SelectedBand
+	form: formReducer,
+	// bands: BandsReducer,
+	// SelectedBand: SelectedBand
 });
 export default rootReducer;
