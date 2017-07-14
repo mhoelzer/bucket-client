@@ -3,6 +3,8 @@ import { reduxForm } from 'redux-form';
 import { createPost } from '../../actions/index'
 import { Link } from 'react-router';
 
+//<button input="submit" className="btn btn-danger">Cancel</button>
+
 class ListItem extends Component {
 	handleFormSubmit(formProps){
 		// call action creator to sign up the user
@@ -34,7 +36,7 @@ class ListItem extends Component {
 				</fieldset>
 
 				<button type="submit" className="btn btn=primary">Submit</button>
-				<button input="submit" className="btn btn-danger">Cancel</button>
+				<Link to="/" className="btn btn-danger">Cancel</Link>
 			</form>
 		);
 	}

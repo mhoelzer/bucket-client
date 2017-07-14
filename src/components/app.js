@@ -11,8 +11,6 @@ export default class App extends Component{
 			<div>
 				<NavBarHeader />
 				<Video />
-				<BandList />
-				<ListItem />
 				{this.props.children}
 			</div>
 		);
