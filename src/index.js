@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import reduxThunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 // from redux, has mult export 
 import { createStore, applyMiddleware } from 'redux';
@@ -10,7 +11,7 @@ import reducers from './reducers';
 import { Router, Route, IndexRoute, browserHistory} from 'react-router'
 import Signin from './components/auth/signin';
 
-const createStoreWithMiddleware = applyMiddleware()(createStore);
+const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
 // tells where to go. the .render tells class. want to placeprovuder comp
 // the / doesnt change state, so property. you are going to send this comp to see root file

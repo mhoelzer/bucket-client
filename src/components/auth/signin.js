@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
+import * as actions from '../../actions';
 
 class Signin extends Component{
 	handleFormSubmit({email, password}){
 		console.log(email, password);
 		// neeed to do somehting to log user in
+		console.log(this.props)
+		this.props.signinUser({ email, password });
 	}
 	render(){
 		const{handleSubmit, fields: {email, password}}=this.props;
@@ -26,7 +29,6 @@ class Signin extends Component{
 
 // First set of parens is for configuration. Second set is for components
 export default reduxForm({
-	// 
 	form: 'signin',
 	fields: ['email', 'password']
-})(Signin);
+}, null, actions)(Signin);

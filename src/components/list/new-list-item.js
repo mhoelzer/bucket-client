@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { reduxForm } from 'redux-form';
-import { createPost } from '../../actions2/index'
+import { createPost } from '../../actions/index'
 import { Link } from 'react-router';
 
 class ListItem extends Component {
