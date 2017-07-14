@@ -60,6 +60,12 @@ export function authError(error){
 	};
 }
 
+// purpose of type is to catch unauth__user case. flips auth flag to false and there wont be any links associated w/ them. also get rid of token
+export function signoutUser(){
+	localStorage.removeItem('token');
+	return {type: UNAUTH_USER};
+}
+
 export default function(state ={}, action){
 	switch(action.type){
 		case AUTH_USER:

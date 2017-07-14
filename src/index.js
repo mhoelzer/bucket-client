@@ -11,6 +11,8 @@ import reducers from './reducers';
 import { Router, Route, IndexRoute, browserHistory} from 'react-router'
 import Signin from './components/auth/signin';
 import newItem from './components/list/new-list-item';
+import Signout from './components/auth/signout';
+
 
 const createStoreWithMiddleware = applyMiddleware(reduxThunk)(createStore);
 
@@ -23,6 +25,7 @@ ReactDOM.render(
 			<Route path='/' component={App}>
 				<Route path="signin" component={Signin} />
 				<Route path="newitem" component={newItem} />
+				<Route path="signout" component={Signout} />
 			</Route>
 		</Router>
 	</Provider> ,
