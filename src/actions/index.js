@@ -1,21 +1,21 @@
 // axios, which is a promise-based http library that allows us to make AJAX requests. We can do GET, POST, UPDATE, & DELETE with it.
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
 import authReducer from '../reducers/auth_reducer';
 
 
 // BANDS
 // action constant names
 // selectBand is an action creator. it returns an action that has to be object with a type property
-const SELECT_BAND = 'SELECT_BAND';
-export function selectBand(band){
-	console.log("You have selected:", band.name)
-	return{
-		type: 'SELECT_BAND',
-		payload: band
-	}
-}
+// const SELECT_BAND = 'SELECT_BAND';
+// export function selectBand(band){
+// 	console.log("You have selected:", band.name)
+// 	return{
+// 		type: 'SELECT_BAND',
+// 		payload: band
+// 	}
+// }
 
 
 // NOT BANDS
@@ -48,8 +48,26 @@ export function signinUser({ email, password }){
 				// this sends us off to the /newitem veiw
 				browserHistory.push('/newitem');
 			})
-			.catch(() => {
-
-			});
+			// Action Creator inside the Action Creator. We’ll call the error function below if there is an error in sign up.  Now if the user signs in and fails we will dispatch the method that says bad login info. Remember that redux-thunk let’s us dispatch the method
+			.catch(response => dispatch(authError("Bad login info")));
 	}
+}
+
+export function authError(error){
+	return{
+		type: AUTH_ERROR,
+		payload: error
+	};
+}
+
+export default function(state ={}, action){
+	switch(action.type){
+		case AUTH_USER:
+			return { ... state, authenticated: true };
+		case UNAUTH_USER:
+			return { ...state, authenticated: false };
+		case AUTH_ERROR:
+			return { ...state, error: action.payload };
+	}
+	return state;
 }
