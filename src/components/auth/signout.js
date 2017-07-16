@@ -2,12 +2,13 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
 
+// maybe after strong is whats there or user
 class Signout extends Component {
-	componentWillMout(){
-		this.props.signoutuser()
+	componentWillMount(){
+		this.props.signoutUser()
 	}
 	render(){
-		return <div>Adios...</div>
+		return <div>Sorry to see you go...</div>
 	}
 }
 
