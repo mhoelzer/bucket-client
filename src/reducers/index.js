@@ -7,12 +7,14 @@ import authReducer from './auth_reducer';
 // 	AUTH_USER,
 // 	UNAUTH_USER
 // } from '../actions/types';
+import postsReducer from './reducer_posts';
 
 // define the properties of our app store here
 const rootReducer = combineReducers({
 	// state: (state = {}) => state
 	form: formReducer,
 	auth: authReducer,
+	posts: postsReducer
 	// bands: BandsReducer,
 	// SelectedBand: SelectedBand
 });

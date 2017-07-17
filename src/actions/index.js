@@ -1,7 +1,7 @@
 // axios, which is a promise-based http library that allows us to make AJAX requests. We can do GET, POST, UPDATE, & DELETE with it.
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, CREATE_POSTS, FETCH_POSTS } from './types';
 import authReducer from '../reducers/auth_reducer';
 
 
@@ -24,15 +24,35 @@ import authReducer from '../reducers/auth_reducer';
 // const ROOT_URL = 'http//rest.learncode.academy/api/mh';
 const ROOT_URL = 'http://localhost:3000';
 
-export const CREATE_POSTS = 'CREATE_POSTS';
+var config = {
+	headers: { authorization: localStorage.getItem('token') }
+}
 
 // action creator b/c returns an action
 export function createPost(props){
-	const request = axios.post(`${ROOT_URL}/posts`, props);
-	return {
-		type: CREATE_POSTS,
-		payload: request
+	return function(dispatch){
+		axios.post(`${ROOT_URL}/newitem`, { props }, config)
+			.then(request => {
+				dispatch({
+					type: CREATE_POSTS,
+					payload: request
+				});
+			browserHistory.push('/items');
+			});
 	};
+}
+
+export function fetchPosts(){
+	return function(dispatch){
+		axios.get(`${ROOT_URL}/items`, config)
+			.then( (response) => {
+				console.log("Response", response)
+				dispatch({
+					type: FETCH_POSTS,
+					payload: response
+				});
+			});
+	}
 }
 
 export function signupUser({email, password, passwordConfirm}){
