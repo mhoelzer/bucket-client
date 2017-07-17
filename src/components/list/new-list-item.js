@@ -13,7 +13,7 @@ class ListItem extends Component {
 	}
 
 	render(){
-		const{handleSubmit, fields: {title, category, url, content}} = this.props;
+		const{handleSubmit, fields: {title, topic, url, content}} = this.props;
 		return(
 			<form onSubmit={handleSubmit(this.handleFormSubmit.bind(this))}>
 				<h3>Create a New Post</h3>
@@ -24,7 +24,7 @@ class ListItem extends Component {
 				</fieldset>
 				<fieldset className="form-group">
 					<label>Category</label>
-					<input type="text" className="form-control" {...category} />
+					<input type="text" className="form-control" {...topic} />
 				</fieldset>
 				<fieldset className="form-group">
 					<label>URL</label>
@@ -44,6 +44,6 @@ class ListItem extends Component {
 
 export default reduxForm({
 	form: 'PostsNewForm',
-	fields: ['title', 'category', 'url', 'content']
+	fields: ['title', 'topic', 'url', 'content']
 // })(ListItem);
 }, null, { createPost })(ListItem);

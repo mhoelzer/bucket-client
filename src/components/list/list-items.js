@@ -25,12 +25,12 @@ class ListItems extends Component {
 					posts: [ ...posts ]
 				})
 			})
-	}
+	} 
 	renderItems(){
 		return this.state.posts.map((post) => {
 			return (
 				<li className="list-group-item" key={post._id}>
-					<Link to={"lists/" + post._id}>
+					<Link to={"items/" + post._id}>
 						<span className="pull-xs-left">{post.topic}</span>
 						<span className="pull-xs-right"><strong>{post.title}</strong></span>
 					</Link>
@@ -38,7 +38,6 @@ class ListItems extends Component {
 			);
 		});
 	}
-
 	render(){
 		if(this.state.posts == 0){
 			return (

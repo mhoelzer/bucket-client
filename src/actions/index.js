@@ -1,7 +1,7 @@
 // axios, which is a promise-based http library that allows us to make AJAX requests. We can do GET, POST, UPDATE, & DELETE with it.
 import axios from 'axios';
 import { browserHistory } from 'react-router';
-import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, CREATE_POSTS, FETCH_POSTS } from './types';
+import { AUTH_USER, UNAUTH_USER, AUTH_ERROR, CREATE_POSTS, FETCH_POSTS, FETCH_POST, DELETE_POST } from './types';
 import authReducer from '../reducers/auth_reducer';
 
 
@@ -30,6 +30,7 @@ var config = {
 
 // action creator b/c returns an action
 export function createPost(props){
+	console.log(props);
 	return function(dispatch){
 		axios.post(`${ROOT_URL}/newitem`, { props }, config)
 			.then(request => {
@@ -51,6 +52,32 @@ export function fetchPosts(){
 					type: FETCH_POSTS,
 					payload: response
 				});
+			});
+	}
+}
+
+export function fetchPost(id){
+	return function(dispatch){
+		axios.get(`${ROOT_URL}/items/${id}`, config)
+			.then( (response) => {
+				console.log("Response", response)
+				dispatch({
+					type: FETCH_POST,
+					payload: response
+				});
+			});
+	}
+}
+
+export function deletePost(id){
+	return function(dispatch){
+		axios.delete(`${ROOT_URL}/items/${id}`, config)
+			.then( (response) => {
+				dispatch({
+					type: DELETE_POST,
+					payload: response
+				});
+				browserHistory.push('/items')
 			});
 	}
 }

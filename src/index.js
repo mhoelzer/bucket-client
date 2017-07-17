@@ -13,6 +13,7 @@ import Signin from './components/auth/signin';
 import Signup from './components/auth/signup';
 import newItem from './components/list/new-list-item';
 import ListShow from './components/list/list-items';
+import ListsShow from './components/list/list-show';
 import RequireAuth from './components/auth/require_auth';
 import Signout from './components/auth/signout';
 
@@ -30,6 +31,7 @@ ReactDOM.render(
 				<Route path="signup" component={Signup} />
 				<Route path="newitem" component={RequireAuth(newItem)} />
 				<Route path="items" component={RequireAuth(ListShow)} />
+				<Route path="items/:id" component={RequireAuth(ListsShow)} />
 				<Route path="signout" component={Signout} />
 			</Route>
 		</Router>
