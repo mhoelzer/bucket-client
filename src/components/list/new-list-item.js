@@ -23,7 +23,7 @@ class ListItem extends Component {
 					<input type="text" className="form-control" {...title} />
 				</fieldset>
 				<fieldset className="form-group">
-					<label>Category</label>
+					<label>Topic</label>
 					<input type="text" className="form-control" {...topic} />
 				</fieldset>
 				<fieldset className="form-group">
