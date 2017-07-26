@@ -9,19 +9,20 @@ class NavBarHeader extends Component{
 	renderLinks(){
 		// if this true, return the signout option
 		if(this.props.authenticated){
-			return <NavItem href="/signout">Sign Out</NavItem>
+			return [
+				<NavItem href="/signout">Sign Out</NavItem>,
+				<NavDropdown key={3} title="Cool Stuff" id="basic-nav-dropdown">
+					<MenuItem key={3.1} href="./newitem">Create a Post</MenuItem>
+					<MenuItem key={3.2} href="./items">Posts List</MenuItem>
+					<MenuItem divider />
+					<MenuItem key={3.3} href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank">Search Through Youtube ;)</MenuItem>
+				</NavDropdown>
+			];
 		} else {
 			// these are for the THIS.RENDERLINKS
 			return [
 				<NavItem key={1} href="./signin">Sign In</NavItem>,
-				<NavItem key={2} href="./signup">Sign Up</NavItem>,
-				<NavDropdown key={3} title="Cool Stuff" id="basic-nav-dropdown">
-					<MenuItem key={3.1}>Action</MenuItem>
-					<MenuItem key={3.2}>Another Action</MenuItem>
-					<MenuItem key={3.3}>Something Else Here</MenuItem>
-					<MenuItem divider />
-					<MenuItem key={3.4}>Separated Link</MenuItem>
-				</NavDropdown>
+				<NavItem key={2} href="./signup">Sign Up</NavItem>
 			];
 		}
 	}
@@ -32,7 +33,7 @@ class NavBarHeader extends Component{
 			<Navbar>
 				<Navbar.Header>
 					<Navbar.Brand>
-						<a href="#">Bucket List</a>
+						<a href="#">Animal Extravaganza</a>
 					</Navbar.Brand>
 				</Navbar.Header>
 				<Nav>

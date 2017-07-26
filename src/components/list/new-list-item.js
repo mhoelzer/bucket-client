@@ -31,11 +31,11 @@ class ListItem extends Component {
 					<input type="text" className="form-control" {...url} />
 				</fieldset>
 				<fieldset className="form-group">
-					<label>Content</label>
+					<label>Description</label>
 					<textarea type="text" rows="8" className="form-control text" {...content} />
 				</fieldset>
 
-				<button type="submit" className="btn btn=primary">Submit</button>
+				<button type="submit" className="btn btn=primary" to="/items">Submit</button>
 				<Link to="/" className="btn btn-danger">Cancel</Link>
 			</form>
 		);

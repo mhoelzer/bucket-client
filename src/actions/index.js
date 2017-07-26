@@ -111,9 +111,11 @@ export function signupUser({email, password, passwordConfirm}){
 
 export function signinUser({ email, password }){
 	return function(dispatch){
+		console.log("hello");
 		axios.post(`${ROOT_URL}/signin`, {email, password})
 			// this kickstarts if the response is good
 			.then(response => {
+				console.log(response);
 				// update the state to indicate authenticated user
 				dispatch({ type: AUTH_USER });
 				// puts the token in localstroage. it's safe and doesnt have to be imported and can be called at any time. 

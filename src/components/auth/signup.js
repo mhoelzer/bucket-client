@@ -6,14 +6,14 @@ import * as actions from '../../actions';
 class Signup extends Component {
 	handleFormSubmit(formProps){
 		// call action crator to sign up the user
-		this.props.signoutUser(formProps)
+		this.props.signupUser(formProps)
 	}
 	renderAlert(){
 		if(this.props.errorMessage){
 			// signup error handleing
 			return(
 				<div className="alert alert-danger">
-					<strong>Sorry, </strong>{user}
+					<strong>Sorry, </strong>{this.props.errorMessage}
 				</div>
 			);
 		}
