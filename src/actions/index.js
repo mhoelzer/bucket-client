@@ -22,9 +22,9 @@ import authReducer from '../reducers/auth_reducer';
 // call out to a test api
 // take out the learncode b/c the url might be too long. check by adding /posts at the end in the url thingy on internet
 // const ROOT_URL = 'http//rest.learncode.academy/api/mh';
-const ROOT_URL = 'http://localhost:3000';
+const ROOT_URL = 'https://bucketlist-server-mh.herokuapp.com/';
 
-var config = {
+const config = {
 	headers: { authorization: localStorage.getItem('token') }
 }
 

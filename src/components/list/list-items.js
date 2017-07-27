@@ -5,7 +5,7 @@ import * as actions from '../../actions/index';
 import { Link } from 'react-router';
 import axios from 'axios';
 
-const ROOT_URL = 'http://localhost:3000';
+const ROOT_URL = 'https://bucketlist-server-mh.herokuapp.com/';
 const config = {
 	headers: { authorization: localStorage.getItem('token') }
 }
